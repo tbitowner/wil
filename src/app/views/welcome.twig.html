@@ -1,0 +1,120 @@
+{% extends "layouts/public.twig.html" %}
+
+{% block title %}
+ {{title|e}}
+{% endblock %}
+
+{% block navbar %}
+
+     {% for page in pages %}
+
+                        {% if page.post_name == 'home' %}
+
+                            {% if page.hasChildPage %}
+
+<li class="dropdown">
+    <a href="#home" class="dropdown-toggle" data-toggle="dropdown"><span class="text-center" data-hover="{{page.post_name}}">{{page.post_name}}</span> <b class="caret"></b></a>
+
+
+    <ul class="dropdown-menu">
+        <li><a href="{{'#' ~ page.post_type ~ '-' ~ 'welcome'}}">{{page.post_name}}</a></li>
+        {% for childpage in page.childpages.get %}
+        <li><a href="{{ url('page', {page: childpage.post_name}) }}">{{childpage.post_title}}</a></li>
+        {% endfor %}
+    </ul>
+</li>
+
+                            {% else %}
+
+<li><a href="{{'#' ~ page.post_type ~ '-' ~ 'welcome'}}">{{page.post_name}}</a></li>
+
+                            {% endif %}
+
+                        {% else %}
+
+<li><a href="{{'#' ~ page.post_type ~ '-' ~ page.post_name}}">{{page.post_name}}</a></li>
+
+                        {% endif %}
+
+
+                        {% endfor %}
+
+<li><a href="#page-contact">Contact</a></li>
+
+{% endblock %}
+
+{% block content %}
+
+{% for page in pages %}
+    {{ page.post_content | raw }}
+{% endfor %}
+
+
+
+{% endblock %}
+
+{% block contact %}
+
+    <!-- contact begins -->
+<section id="page-contact" class="page-contact">
+    <div class="container">
+        <header class="section-header">
+            <h2 class="section-title"><span>HOW TO CONTACT ME</span></h2>
+            <div class="spacer"></div>
+            <p class="section-subtitle">If you wish to discuss further, please contact me below</p>
+        </header>
+        <div class="row">
+            <div class="col-sm-5 contact-info">
+                <h3>Darol Lucas</h3>
+                <p><i class="fa fa-map-marker"></i>   Phoenix, AZ 85032 </p>
+                <p> <a href="tel: 314 280 8274" style="color: #FFFFFF"><i class="fa fa-phone"></i> 314 280 8274 </a>  </p>
+                <p><a href="mailto:Darol@techbaseit.com?Subject=Inquiry" target="_top" style="color:#FFFFFF"><i class="fa fa-envelope-o"></i>   Darol@techbaseit.com</a></p>
+            </div>
+
+            <div class="col-sm-7">
+                <h3>Get in Touch</h3>
+
+                <form class="form-horizontal" id="contact-form" action="/" method="post">
+                    {{ form_widget(form) }}
+
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-default btn-lg btn-block">Submit Message</button>
+                    </div>
+                </form>
+
+            
+            </div>
+        </div><!-- End row -->
+    </div>
+</section> <!-- contact ends -->
+
+{% endblock %}
+
+{% block slideshow %}
+
+    <script>
+    /* VEGAS Home Slider */
+
+    $.vegas('slideshow', {
+        backgrounds: [
+
+          { src: '{{articulate("img/slider/01.jpg")}}', fade: 1000 },
+          { src: '{{articulate("img/slider/02.jpg")}}', fade: 1000 },
+          { src: '{{articulate("img/slider/03.jpg")}}', fade: 1000 },
+          { src: '{{articulate("img/slider/04.jpg")}}', fade: 1000 }
+        ]
+    })('overlay', {
+        src: '{{articulate("img/overlays/16.png")}}'
+    });
+    $("#vegas-next").click(function () {
+        $.vegas('next');
+    });
+    $("#vegas-prev").click(function () {
+        $.vegas('previous');
+    });
+</script>
+
+
+
+{% endblock %}

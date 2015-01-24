@@ -1,0 +1,22 @@
+{% extends "layouts/public.twig.html" %}
+
+{% block title %}
+ {{title|e}}
+{% endblock %}
+
+
+{% block content %}
+
+   <div style="background-color: #3498db" class="jumbotron">
+   <div class="page-header text-center">
+
+   <h1 style="color: #FFFFFF">Oops, 404<br><small style="color: #dddddd">The page you were looking for could not be found.</small></h1>
+
+   </div>
+
+<div class="text-center">
+<a href="{{url('index')}}" class="btn btn-default">Return Home</a>
+</div>
+   </div>
+
+{% endblock %}

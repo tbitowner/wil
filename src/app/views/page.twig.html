@@ -1,0 +1,19 @@
+{% extends "layouts/public.twig.html" %}
+
+{% block title %}
+ {{title|e}}
+{% endblock %}
+
+{% block navbar %}
+
+<li><a href="{{ url('index') }}">Home</a></li>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+    {{content|raw}}
+
+{% endblock %}
