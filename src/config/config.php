@@ -22,7 +22,10 @@ return [
     'app.static_root_web' => website_url() . '/../assets/%s',
     'app.static_root_web_bootstrap' => website_url() . '/../assets/lib/bootstrap-3.1.1-dist/%s',
     'app.static_root_web_articulate' => website_url() . '/../assets/lib/articulate/%s',
+    'app.static_root_web_agency' => website_url() . '/../assets/lib/agency/%s',
+    'app.static_root_web_velocity' => website_url() . '/../assets/lib/velocity/%s',
     'app.wp_assets' => website_url() . '/../dashboard/wp-content/uploads/%s',
+    'app.static_root_assets' => $APP_ROOT . '/../../../wil_dashboard/wp-content/uploads/',
 
     /*
     $config['file_repos.options'] = array(

@@ -8,7 +8,7 @@
 
      {% for page in pages %}
 
-                        {% if page.post_name == 'home' %}
+                    
 
                             {% if page.hasChildPage %}
 
@@ -17,18 +17,14 @@
 
 
     <ul class="dropdown-menu">
-        <li><a href="{{'#' ~ page.post_type ~ '-' ~ 'welcome'}}">{{page.post_name}}</a></li>
+
         {% for childpage in page.childpages.get %}
         <li><a href="{{ url('page', {page: childpage.post_name}) }}">{{childpage.post_title}}</a></li>
         {% endfor %}
     </ul>
 </li>
 
-                            {% else %}
 
-<li><a href="{{'#' ~ page.post_type ~ '-' ~ 'welcome'}}">{{page.post_name}}</a></li>
-
-                            {% endif %}
 
                         {% else %}
 
@@ -93,27 +89,6 @@
 
 {% block slideshow %}
 
-    <script>
-    /* VEGAS Home Slider */
-
-    $.vegas('slideshow', {
-        backgrounds: [
-
-          { src: '{{articulate("img/slider/01.jpg")}}', fade: 1000 },
-          { src: '{{articulate("img/slider/02.jpg")}}', fade: 1000 },
-          { src: '{{articulate("img/slider/03.jpg")}}', fade: 1000 },
-          { src: '{{articulate("img/slider/04.jpg")}}', fade: 1000 }
-        ]
-    })('overlay', {
-        src: '{{articulate("img/overlays/16.png")}}'
-    });
-    $("#vegas-next").click(function () {
-        $.vegas('next');
-    });
-    $("#vegas-prev").click(function () {
-        $.vegas('previous');
-    });
-</script>
 
 
 

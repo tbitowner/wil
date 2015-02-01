@@ -27,7 +27,16 @@ class Post extends Eloquent
 
     public function asset()
     {
-        return $this->hasOne('PostMeta', 'post_id');
+        return $this->hasOne('PostMeta', 'post_id')
+        ->where('meta_key', '<>', '_edit_lock')
+        ->where('meta_key', '<>', '_edit_last');
+    }
+
+    public function lastasset()
+    {
+        return $this->asset()
+        ->where('meta_key', '<>', '_edit_last')
+        ->orderBy('meta_id', 'desc');
     }
     
     /**
@@ -60,17 +69,33 @@ class Post extends Eloquent
                ->where('post_type', '=', 'page')
                ->where('post_status', '<>', 'trash');
     }
+
+    public function countChildPages()
+    {
+        return $this->childpages()->count();
+    }
     
     public function hasChildPage()
     {
-        $children = $this->childpages()->get();
-        
-        if( isset($children))
-        {
-            return true;
-        }
-        
-        return false;
+        return $this->countChildPages() > 0;
+    }
+
+    public function childassets()
+    {
+        return $this->hasMany('Post', 'post_parent')
+               ->where('post_type', '=', 'attachment')
+               ->where('post_mime_type', 'like', '%image%')
+               ->where('post_status', '<>', 'trash');
+    }
+
+    public function countChildAssets()
+    {
+        return $this->childassets()->count();
+    }
+
+    public function hasChildAssets()
+    {
+        return $this->countChildAssets() > 0;
     }
 }
 

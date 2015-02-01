@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Cookie;
 use TBIT\FormRepository\VisualFormBuilder;
 use TBIT\FormRepository\Creator;
 use TBIT\FormRepository\Contact;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 
 class BaseController 
@@ -54,11 +56,28 @@ class BaseController
         {
             return new Response( $app['twig']->render('404.twig.html', array( 'data' => '' )), 404 );
         }
+
+       
         
         return $app['twig']->render('page.twig.html', [
             "title"   => $title->option_value . ' | ' . $thePage->post_title,
-            "content" => $thePage->post_content
+            "content" => $thePage->post_content,
+            "childassets" => $thePage->childassets
         ]);
+    }
+
+    public function showAssetContent(Application $app, Request $request)
+    {
+        $name = $request->get('slug');
+        $year = $request->get('year');
+        $month = $request->get('month');
+
+        $asset = PostMeta::search($year . '/' . $month . '/' . $name);
+
+        //dd($app['app.static_root_assets'] . $asset->first()->meta_value);
+        $response = new BinaryFileResponse($app['app.static_root_assets'] . $asset->first()->meta_value);
+
+        return $response->send();
     }
 
 }

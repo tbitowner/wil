@@ -15,22 +15,16 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- Bootstrap core CSS -->
  
-    <link href="{{articulate('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{agency('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- Fonts from Font Awsome -->
-    <link rel="stylesheet" href="{{articulate('css/font-awesome.min.css')}}" type="text/css">
-    <!-- Magnific popup -->
-    <link rel="stylesheet" href="{{articulate('css/magnific-popup.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{agency('font-awesome/css/font-awesome.min.css')}}" type="text/css">
+
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="{{articulate('css/main.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{agency('css/agency.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{velocity('css/styles.css')}}" type="text/css">
     <!-- Color styles -->
-    <link rel="stylesheet" href="{{articulate('css/colors/blue.css')}}" type="text/css">
-    <!-- <link rel="stylesheet" href="css/colors/yellow.css">-->
-    <!-- <link rel="stylesheet" href="css/colors/red.css">-->
-    <!--  <link rel="stylesheet" href="css/colors/purple.css">-->
-    <!--  <link rel="stylesheet" href="css/colors/orange.css">-->
-    <!--  <link rel="stylesheet" href="css/colors/green.css">-->
-    <!-- Feature detection -->
-    <script src="{{articulate('js/modernizr-2.6.2.min.js')}}"></script>
+   
+
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
@@ -39,9 +33,20 @@
       <script src="js/plugins/html5shiv.js"></script>
       <script src="js/plugins/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+    .navbar-default .nav ul li a {
+text-transform: uppercase;
+font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+font-weight: 400;
+letter-spacing: 1px;
+color: #000;
+}
+    </style>
 </head>
-<body>
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
+<body id="page-top" class="index">
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -59,20 +64,24 @@
 
 
                     {% endblock %}
-                        <!--
-        <li><a href="#page-welcome">Home</a></li>
-        <li><a href="#page-profile">Profile</a></li>
-        <li><a href="#page-skills">Skills</a></li>
-        <li><a href="#page-education">Education</a></li>
-        <li><a href="#page-experience">Experience</a></li>
-        <li><a href="#page-portfolio">Portfolio</a></li>
-            -->
+
                         
 
                     </ul>
             </div><!--/.nav-collapse -->
         </div>
     </div>
+
+     <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To Our Studio!</div>
+                <div class="intro-heading">It's Nice To Meet You</div>
+                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+            </div>
+        </div>
+    </header>
 
     {% block content %}
     
@@ -85,18 +94,37 @@
 
     
 
-    <script src="{{articulate('js/jquery-1.10.2.min.js')}}"></script>
-    <script src="{{articulate('js/bootstrap.min.js')}}"></script>
-    <script src="{{articulate('js/jquery.scrollTo.js')}}"></script>
-    <script src="{{articulate('js/jquery.nav.js')}}"></script>
-    <script src="{{articulate('js/jquery.sticky.js')}}"></script>
-    <script src="{{articulate('js/jquery.easypiechart.min.js')}}"></script>
-    <script src="{{articulate('js/jquery.vegas.min.js')}}"></script>
-    <script src="{{articulate('js/jquery.isotope.min.js')}}"></script>
-    <script src="{{articulate('js/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{articulate('js/jquery.validate.js')}}"></script>
-    <script src="{{articulate('js/waypoints.min.js')}}"></script>
-    <script src="{{articulate('js/main.js')}}"></script>
+
+
+    <!-- jQuery -->
+    <script src="{{agency('js/jquery.js')}}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{agency('js/bootstrap.min.js')}}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="{{agency('js/classie.js')}}"></script>
+    <script src="{{agency('js/cbpAnimatedHeader.js')}}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{{agency('js/jqBootstrapValidation.js')}}"></script>
+    <script src="{{agency('js/contact_me.js')}}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{agency('js/agency.js')}}"></script>
+
+    <script src="{{velocity('js/jquery.flexslider-min.js')}}"></script>
+
+    <script src="{{velocity('js/bootstrap-hover-dropdown.min.js')}}"></script>
+
+    <script src="{{velocity('js/jquery.placeholder.min.js')}}"></script>
+
+    <script src="{{velocity('js/main.js')}}"></script>
+<script src="{{velocity('js/jquery.masonry.min.js')}}"></script>
+
+
+    <script src="{{velocity('js/blog.js')}}"></script>
 
     {% block slideshow %}
 

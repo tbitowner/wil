@@ -14,6 +14,9 @@ $routes->match('/', '\BaseController::showWelcome')
 $routes->get('/{page}', '\BaseController::showPageContent')
     ->bind('page');
 
+$routes->get('/wp-content/uploads/{year}/{month}/{slug}', '\BaseController::showAssetContent')
+    ->bind('asset');
+
 $blogPosts = array(
     1 => array(
         'date'      => '2011-03-29',

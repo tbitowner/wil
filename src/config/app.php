@@ -62,11 +62,27 @@ $app['twig'] = ($app->extend('twig', function($twig, $app) {
         return sprintf($app['app.static_root_web_articulate'], ltrim($asset, '/'));
     }));
 
+    $twig->addFunction(new \Twig_SimpleFunction('agency', function ($asset) use($app) {
+        // implement whatever logic you need to determine the asset path
+   
+        return sprintf($app['app.static_root_web_agency'], ltrim($asset, '/'));
+    }));
+
+    $twig->addFunction(new \Twig_SimpleFunction('velocity', function ($asset) use($app) {
+        // implement whatever logic you need to determine the asset path
+   
+        return sprintf($app['app.static_root_web_velocity'], ltrim($asset, '/'));
+    }));
+
     $twig->addFunction(new \Twig_SimpleFunction('wpassets', function ($asset) use($app) {
         // implement whatever logic you need to determine the asset path
    
         return sprintf($app['app.wp_assets'], ltrim($asset, '/'));
     }));
+
+    // or a simple PHP function
+    $filter = new \Twig_SimpleFilter('unserialize', 'unserialize');
+    $twig->addFilter($filter);
 
     return $twig;
 }));

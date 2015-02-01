@@ -19,4 +19,13 @@ class PostMeta extends Eloquent
 	{
 		return $this->belongsTo('Post');
 	}
+
+	public function scopeSearch($query, $search)
+	{
+		return $query->where(function($query) use($search)
+		{
+            $query->where('meta_value', '=', $search)
+                ->where('meta_key', '=', '_wp_attached_file');
+        });
+	}
 }
