@@ -19,7 +19,8 @@ class VisualFormBuilderForm extends Eloquent
                ->where('field_type', '<>', 'verification')
                ->where('field_type', '<>', 'secret')
                ->where('field_type', '<>', 'submit')
-               ->where('field_type', '<>', 'fieldset');
+               ->where('field_type', '<>', 'fieldset')
+               ->orderBy('field_sequence', 'asc');
     }
     
     public function scopeContact($query)
