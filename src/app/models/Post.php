@@ -15,6 +15,16 @@ class Post extends Eloquent
     	return $this->key;
     }
 
+    public function user()
+    {
+        return $this->belongsTo('User', 'post_author');
+    }
+
+    public function postauthor()
+    {
+        return $this->user->fullname();
+    }
+
     public function meta()
     {
     	return $this->hasMany('PostMeta');

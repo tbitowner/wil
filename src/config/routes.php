@@ -14,6 +14,9 @@ $routes->match('/', '\BaseController::showWelcome')
 $routes->get('/{page}', '\BaseController::showPageContent')
     ->bind('page');
 
+$routes->get('/{postname}', '\BaseController::showPostContent')
+    ->bind('post');
+
 $routes->get('/wp-content/uploads/{year}/{month}/{slug}', '\BaseController::showAssetContent')
     ->bind('asset');
 

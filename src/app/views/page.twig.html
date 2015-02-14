@@ -6,10 +6,30 @@
 
 {% block navbar %}
 
-<li><a href="{{ url('index') }}">Home</a></li>
+{% include 'partials/navbar.twig.html' %}
 
 
 {% endblock %}
+
+ {% block header %}
+
+    <header style="background-image : url({{childassets.first.guid}});">
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To Our Studio!</div>
+                <div class="intro-heading">It's Nice To Meet You</div>
+                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header text-center">
+        <h1>{{pageheader|e}} <small>Architecture</small></h1>
+     </div>
+
+ {% endblock %}
+
+
 
 
 {% block content %}
@@ -34,15 +54,18 @@
                                 <h3 class="post-title"><a href="blog-single.html">{{childasset.post_excerpt}}</a></h3>
                                 <div class="post-entry">
                                     <p>{{childasset.post_content}}</p>
-                                    <a class="read-more" href="blog-single.html">Read more <i class="fa fa-long-arrow-right"></i></a>
+                                    <a class="read-more" href="{{ url('post', {postname: childasset.post_name}) }}">Read more <i class="fa fa-long-arrow-right"></i></a>
                                 </div>
                                 <div class="meta">
                                     <ul class="meta-list list-inline">                                       
-                                    	<li class="post-time post_date date updated">16th Oct, 2014</li>
-                                    	<li class="post-author"> by <a href="#">James Lee</a></li>
-                                    	<li class="post-comments-link">
+                                    	<li class="post-time post_date date updated">{{ (childasset.post_date|strtotime)|date("d F Y") }} at {{ (childasset.post_date|strtotime)|date("g:ha") }}</li>
+                                    	<li class="post-author"> by <a href="#">{{childasset.postauthor}}</a></li>
+                                    	<!--
+                                        <li class="post-comments-link">
                                 	        <a href="blog-single.html#comment-area"><i class="fa fa-comments"></i>8</a>
                                 	    </li>
+                                        -->
+
                                 	</ul><!--//meta-list-->                           	
                                 </div><!--meta-->
                             </div><!--//content-->
@@ -54,6 +77,8 @@
      {% endfor %}
      	</div><!--//blog-list--> 
      </div><!--//row-->
+
+<!--
             <div class="pagination-container text-center">
                 <ul class="pagination">
                     <li class="disabled"><a href="#">«</a></li>
@@ -63,8 +88,11 @@
                     <li><a href="#">4</a></li>
                     <li><a href="#">5</a></li>
                     <li><a href="#">»</a></li>
-                </ul><!--//pagination-->
-            </div><!--//pagination-container-->
+                </ul><!--//pagination
+            </div>-//pagination-container-->
+
+
+
         </div>
 
    

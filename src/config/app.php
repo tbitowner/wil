@@ -84,6 +84,10 @@ $app['twig'] = ($app->extend('twig', function($twig, $app) {
     $filter = new \Twig_SimpleFilter('unserialize', 'unserialize');
     $twig->addFilter($filter);
 
+    // or a simple PHP function
+    $filter = new \Twig_SimpleFilter('strtotime', 'strtotime');
+    $twig->addFilter($filter);
+
     return $twig;
 }));
 

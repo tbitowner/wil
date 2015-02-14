@@ -57,12 +57,14 @@ class BaseController
             return new Response( $app['twig']->render('404.twig.html', array( 'data' => '' )), 404 );
         }
 
-       
+        $pages = Post::pages()->get();
         
         return $app['twig']->render('page.twig.html', [
             "title"   => $title->option_value . ' | ' . $thePage->post_title,
             "content" => $thePage->post_content,
-            "childassets" => $thePage->childassets
+            "childassets" => $thePage->childassets,
+            "pages" => $pages,
+            "pageheader" => $thePage->post_title
         ]);
     }
 
