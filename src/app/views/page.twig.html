@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="meta">
                                     <ul class="meta-list list-inline">                                       
-                                    	<li class="post-time post_date date updated">{{ (childasset.post_date|strtotime)|date("d F Y") }} at {{ (childasset.post_date|strtotime)|date("g:ha") }}</li>
+                                    	<li class="post-time post_date date updated">{{ (childasset.post_modified|strtotime)|date("d F Y") }} at {{ childasset.post_modified|strtotime|date('g:ha') }}</li>
                                     	<li class="post-author"> by <a href="#">{{childasset.postauthor}}</a></li>
                                     	<!--
                                         <li class="post-comments-link">
