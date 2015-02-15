@@ -6,13 +6,18 @@
 
 {% block navbar %}
 
-{% include 'partials/navbar.twig.html' %}
+<div class="blog-page">
+<header class="header navbar-fixed-top">  
+{% include 'partials/velocityheader.twig.html' %}
+</header>
+
+</div>
 
 
 {% endblock %}
 
  {% block header %}
-
+<!--
     <header style="background-image : url({{childassets.first.guid}});">
         <div class="container">
             <div class="intro-text">
@@ -22,9 +27,14 @@
             </div>
         </div>
     </header>
+-->
+<div class="blog-page">
+    {% include 'partials/blogfeaturesection.twig.html' %}
 
     <div class="page-header text-center">
         <h1>{{pageheader|e}} <small>Architecture</small></h1>
+     </div>
+
      </div>
 
  {% endblock %}
@@ -95,6 +105,6 @@
 
         </div>
 
-   
+  
 
 {% endblock %}

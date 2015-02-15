@@ -5,8 +5,35 @@
 {% endblock %}
 
 {% block navbar %}
+<header id="header" class="header">  
+{% include 'partials/velocityheader.twig.html' %}
+</header>
 
-{% include 'partials/navbar.twig.html' %}
+{% endblock %}
+
+{% block header %}
+
+<div class="bg-slider-wrapper">
+        <div class="flexslider bg-slider">
+            <ul class="slides">
+                <li class="slide slide-1"></li>
+                <li class="slide slide-2"></li>
+                <li class="slide slide-3 flex-active-slide"></li>
+            </ul>
+        </div>
+    </div>
+
+<section class="promo section section-on-bg">
+        <div class="container text-center">                
+            <h2 class="title">Welcome To<br>Wetterland Architecture Studios!</h2>
+            <p class="intro">I have recently update my website. <br> Feel free to browse through my work</p>
+            <!--
+            <p><a class="btn btn-cta btn-cta-primary" href="signup.html">Try Velocity Free</a></p>   
+            
+            <button type="button" class="play-trigger btn-link " data-toggle="modal" data-target="#modal-video"><i class="fa fa-youtube-play"></i> Watch the video</button>
+            -->
+        </div><!--//container-->
+    </section>
 
 {% endblock %}
 

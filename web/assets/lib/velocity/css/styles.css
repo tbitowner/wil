@@ -1,6 +1,6 @@
 /*   
  * Template Name: Velocity - Responsive Website Template for Products
- * Version: 1.4
+ * Version: 1.5
  * Author: Xiaoying Riley at 3rd Wave Media
  * Website: http://themes.3rdwavemedia.com/
  * Twitter: @3rdwave_themes
@@ -27,6 +27,9 @@ a {
 a:hover {
   text-decoration: underline;
   color: #e74124;
+}
+a:focus {
+  text-decoration: none;
 }
 .btn,
 a.btn {
@@ -128,10 +131,16 @@ a.btn-ghost .text,
 .text-highlight {
   color: #952410;
 }
+input[type="text"],
+input[type="email"],
+input[type="password"],
 input[type="submit"],
-input[type="button"] {
+input[type="button"],
+textarea,
+select {
   appearance: none;
   /* for mobile safari */
+  -webkit-appearance: none;
 }
 #topcontrol {
   background: #5d80a1;
@@ -2463,6 +2472,14 @@ input[type="button"] {
   font-size: 14px;
   color: #999999;
   margin-top: 30px;
+}
+/* ======= Reset Password Page ======= */
+.resetpass-section .form-box .title {
+  margin-bottom: 30px;
+}
+.resetpass-section .intro {
+  font-size: 16px;
+  margin-bottom: 30px;
 }
 /* ======= Footer ======= */
 .footer {

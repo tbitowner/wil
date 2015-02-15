@@ -1,0 +1,26 @@
+<section class="featured-blog-posts section">       
+       
+            <div class="flexslider blog-slider">
+                <ul class="slides">
+
+                    {% for childasset in childassets %}
+
+                        <li class="slide slide-{{loop.index}}" style="background-image : url({{childasset.guid}}); background-size : cover; background-repeat : no-repeat;">
+                            <div class="flex-caption container">
+                                <h3 class="title"><a href="#">{{childasset.post_excerpt}}</a></h3>
+                                <div class="meta">16th Oct, 2014</div>
+                                <a class="more-link" href="blog-single.html">Read more →</a>
+                            </div><!--//flex-caption-->
+                        </li>
+
+                    {% endfor %}
+    
+                    
+                </ul><!--//slides-->
+
+            </div><!--//flexslider-->
+                    
+        </section>
+
+
+      
