@@ -68,6 +68,11 @@ class BaseController
         ]);
     }
 
+    public function showPostContent(Application $app, Request $request, $postname)
+    {
+        
+    }
+
     public function showAssetContent(Application $app, Request $request)
     {
         $name = $request->get('slug');
