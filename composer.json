@@ -1,1 +1,35 @@
-# wil
+{
+    "require": {
+        "illuminate/database": "4.1.*",
+        "silex/silex": "2.0.*@dev",
+        "pimple/pimple": "3.0.*@dev",
+        "symfony/event-dispatcher": "2.5.*@dev",
+        "symfony/http-foundation": "2.5.*@dev",
+        "symfony/http-kernel": "2.5.*@dev",
+        "symfony/routing": "2.5.*@dev",
+        "twig/twig": "1.*",
+        "kompas/oauth2-client": "dev-develop",
+        "symfony/twig-bridge": "2.6.*@dev",
+                "symfony/form": "2.6.*@dev",
+                "symfony/security-csrf": "2.6.*@dev",
+                "symfony/validator": "2.5.*@dev",
+                "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev"
+
+    },
+    "autoload": {
+                "classmap": [
+                        "src/app/models",
+            "src/app/controllers",
+            "src/app/libraries"
+                ],
+        "psr-4" : {
+            "TechBaseIT\\Services\\" : "tbit/services",
+                        "TBIT\\FormBundle\\" : "tbit/forms",
+                        "TBIT\\FormRepository\\" : "tbit/forms/repository/form"
+        },
+        "files": [
+            "tbit/helpers.php"
+        ]
+        }
+}
+
